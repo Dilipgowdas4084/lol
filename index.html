@@ -1,0 +1,26 @@
+<html>
+
+<body>
+
+    <h2>voice to text converter</h2>
+    <button id="btn"> speak now</button>
+    <p id="output"></p>
+    <script>
+        const btn = document.getElementById("btn");
+        const output = document.getElementById("output");
+
+        btn.addEventListener("click", () => {
+            const recognition = new
+            webkitSpeechRecognition();
+            recognition.lang = "eng-us";
+            recognition.start()
+
+            recognition.onresult = (event) => {
+                output.textContent = event.results[0]
+                    [0].transcript;
+            };
+        })
+    </script>
+</body>
+
+</html>
